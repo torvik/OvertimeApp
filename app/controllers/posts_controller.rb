@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :set_post, only: [:show]
+    before_action :set_post, only: [:show, :edit, :update, :destroy]
     #before_action :post_params
     
     def index
@@ -19,10 +19,26 @@ class PostsController < ApplicationController
          @post.user_id = current_user.id
 
         if @post.save
-         redirect_to post_path(@post), notice: 'Post was successfully created.'
+         redirect_to post_path(@post), notice: 'Post was created successfully .'
         else
          render :new
         end
+    end
+
+    def edit
+    end
+
+    def update
+      if @post.update(post_params)
+        redirect_to @post, notice: 'Post was edited successfully.'
+      else 
+        render :edit
+      end 
+    end
+
+    def destroy
+      @post.delete 
+      redirect_to posts_path, notice: 'Post was deleted successfully.'
     end
     
     private
