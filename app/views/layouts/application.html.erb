@@ -6,9 +6,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
-    <%= yield %>
+  <body >
+
+    <div class="container-fluid">
+	    <div class="row">
+		    <div class="col-md-12">
+          <%= render "/shared/nav" %> 
+               <% flash.each do |name, msg| %>
+                   <%= content_tag(:div, msg, class: "alert alert-info") %>
+               <% end %>
+               
+            <%= yield %>    
+        </div>
+	    </div>
+    </div>
+
+
   </body>
 </html>

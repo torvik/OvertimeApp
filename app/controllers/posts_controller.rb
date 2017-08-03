@@ -1,7 +1,10 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show]
+    #before_action :post_params
+    
     def index
       @posts = Post.all
+      
     end
 
     def show
@@ -12,9 +15,10 @@ class PostsController < ApplicationController
     end
 
     def create
-         @post = Post.new(params.require(:post).permit(:date, :rationale))
+         @post = Post.new(post_params)
+         @post.user_id = current_user.id
 
-        if @topic.save
+        if @post.save
          redirect_to post_path(@post), notice: 'Post was successfully created.'
         else
          render :new
@@ -26,7 +30,10 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])  
       #@post = Post.friendly.find(params[:id])        
+    end
 
+    def post_params
+        params.require(:post).permit(:date, :rationale)
     end
 
 end
