@@ -3,6 +3,9 @@
 @import "gritter";
 @import "bourbon";
 
+body {
+        background-color: gainsboro;
+}
 
 .index-icons {
     font-size: 1.5em;
@@ -11,4 +14,18 @@
 .index-icons:hover {
     text-decoration: none;
     color: black;
+}
+
+.container {
+    width: 75%;
+    font-size: 12px;
+    
+}
+
+.navbar {
+    font-size: 12px;
+}
+
+.navbar li {
+    font-size: 12px;
 }
