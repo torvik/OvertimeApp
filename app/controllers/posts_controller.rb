@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     #before_action :post_params
     
     def index
-      @posts = Post.all
+      @posts = Post.posts_by current_user
       
     end
 
