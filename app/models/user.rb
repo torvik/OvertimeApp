@@ -9,10 +9,12 @@ class User < ApplicationRecord
 
   #validates_presence_of :first_name, :last_name, :phone
 
-   #PHONE_REGEX = /^[0-9]*/
-   #validates_format_of :phone, :with => /\A[0-9]*\z/
+  PHONE_REGEX = /\A[0-9]*\Z/
 
-   #validates :phone, length: { is: 14 }
+  validates_format_of :phone, with: PHONE_REGEX
+
+  validates :phone, length: { is: 14 }
+
 
   def full_name
     last_name.upcase + ", " + first_name.upcase
