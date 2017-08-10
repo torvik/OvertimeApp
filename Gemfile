@@ -22,7 +22,7 @@ gem 'bourbon'
 gem 'pundit', '~> 1.1'
 gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
 gem 'dotenv-rails', :groups => [:development, :test]
-
+gem 'kaminari', '~> 1.0.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
