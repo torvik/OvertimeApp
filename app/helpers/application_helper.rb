@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+    def admin_types
+        ['AdminUser']
+    end
+
     def status_label status
       status_span_generator status
     end
