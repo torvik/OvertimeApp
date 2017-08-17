@@ -1,11 +1,11 @@
-@user = User.create(email: "teste@teste.com", password: "123456", password_confirmation: "123456", first_name: "Jon", last_name: "Dell", phone: "5521995629323")
-@admin = AdminUser.create(email: "admin@admin.com", password: "123456", password_confirmation: "123456", first_name: "Jon", last_name: "Dell", phone: "5521995629323")
+@employee = Employee.create(email: "teste@teste.com", password: "123456", password_confirmation: "123456", first_name: "Jon", last_name: "Dell", phone: "5521995629323")
+AdminUser.create(email: "admin@admin.com", password: "123456", password_confirmation: "123456", first_name: "Admin", last_name: "Name", phone: "5521995629323")
 
 puts "2 user created"
 
-AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
-AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 13.days))
-AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 20.days))
+AuditLog.create!(user_id: @employee.id, status: 0, start_date: (Date.today - 6.days))
+AuditLog.create!(user_id: @employee.id, status: 0, start_date: (Date.today - 13.days))
+AuditLog.create!(user_id: @employee.id, status: 0, start_date: (Date.today - 20.days))
 
 puts "3 Audit Logs have been created"
 
